@@ -1,0 +1,37 @@
+---
+title: "HAQ article framework"
+output: html_notebook
+---
+
+
+# Abstract
+
+## Introduction
+
+
+
+## Methods
+
+
+## Results
+
+
+## Discussion
+
+## Conclusions
+**********
+# Main article
+
+## Introduction
+
+
+
+## Methods
+
+
+## Results
+
+
+## Discussion
+
+## Conclusions
