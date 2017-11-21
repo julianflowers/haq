@@ -14,3 +14,8 @@ Need data on healthsystem indicators
   * per capita resources
   
   
+ ## Amenable mortality
+ http://ec.europa.eu/eurostat/statistics-explained/index.php/Amenable_and_preventable_deaths_statistics#Publications
+ 
+ ### eurostat r package cheatsheet
+ https://cran.r-project.org/web/packages/eurostat/vignettes/cheatsheet.html
