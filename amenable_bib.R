@@ -37,12 +37,16 @@ am_abs <- abstracts %>%
 am_abs$abstract <- tm::removeNumbers(am_abs$abstract)
 
 am_cloud <- am_abs %>%
-  unnest_tokens(word, abstract) %>%
-  anti_join(stop_words) %>%
-  count(word, sort = TRUE) 
+  unnest_tokens(ngram, abstract, token = "ngrams", n=2) %>%
+    count(ngram, sort = TRUE) %>%
+   separate(ngram, c("word1", "word2"), sep = " ") %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>%
+  mutate(bigram = paste(word1, word2, sep = " ") )
+   
 
 am_cloud %>%
-  with(wordcloud(word, n, min.freq = 10, max.words = 1000, colors = brewer.pal(8, "Dark2")), scale = c(8,.3), per.rot = 0.4)
+  with(wordcloud(bigram, n, min.freq = 3, max.words = 1000, colors = brewer.pal(8, "Dark2")), scale = c(8,.3), per.rot = 0.4)
 
 am_abs %>%
   DT::datatable()
