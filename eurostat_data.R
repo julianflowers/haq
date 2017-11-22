@@ -42,3 +42,19 @@ am_data1 %>%
        subtitle = "By ICD10 code", 
        y = "Rate") +
   scale_y_log10()
+
+
+am_data2 <- get_eurostat(id = "hlth_cd_apr") %>% filter(time == max(time), unit == "RT") %>% mutate(cat = cut_to_classes(values, n = 5, decimals = 1))
+mapdata <- merge_eurostat_geodata(am_data2, resolution = "20")
+
+ggplot(mapdata, aes(x = long, y = lat, group = group)) +
+  geom_polygon(aes(fill = cat), colour = "grey", size = .1) +
+  labs(title = "Amenable mortality by NUTS-3 region, 2014",
+       subtitle = "Mortality rate per 100,000", 
+       fill = "Amenable mortality \nrate", 
+       caption = "Source: EUROSTAT") +
+  theme_void() +
+  scale_fill_brewer(palette = "RdYlBu") + 
+  coord_map(xlim = c(-12, 44), ylim = c(35,67)) 
+
+ggsave("euro_am.png")
