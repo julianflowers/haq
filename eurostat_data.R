@@ -1,4 +1,4 @@
-## Eurostat amenamble mortality
+## Eurostat amenamble mortality data
 
 if(!require(eurostat))install.packages("eurostat")
 library(eurostat)
@@ -28,8 +28,7 @@ am_data %>%
   facet_wrap(indic_he~icd10, scales = "free", nrow = 2) +
   labs(caption = "Source: EUROSTAT", 
        title = "Preventable and amenable mortality in Europe \n2010-2014")
-+
-  scale_y_log10()
+
   
 
 am_data1 %>%
@@ -37,10 +36,9 @@ am_data1 %>%
   ggplot(aes(time, values, shape = indic_he, colour = icd10)) + 
   geom_line() +
   geom_point() +
-  facet_wrap(indic_he~sex, scales = "free", nrow = 2) +
+  facet_wrap(indic_he~sex, nrow = 2) +
   labs(caption = "Source: EUROSTAT", 
-       title = "Preventable and amenable mortality in Europe \n2010-2014", 
+       title = "Preventable and amenable mortality in Europe (EU28) \n2010-2014", 
        subtitle = "By ICD10 code", 
-       y = "Rate")
-+
+       y = "Rate") +
   scale_y_log10()

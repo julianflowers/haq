@@ -1,8 +1,18 @@
 ---
 title: "HAQ article framework"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
+```{r, include =  FALSE }
+
+knitr::opts_chunk$set(cache = TRUE, echo = FALSE)
+
+library(tidyverse)
+
+
+```
 
 # Abstract
 
@@ -27,6 +37,24 @@ output: html_notebook
 
 
 ## Methods
+
+```{r literature_search}
+
+source("pubmedAbstractR.R")
+
+gbd <- pubmedAbstractR("GBD")
+
+gbd %>%
+  group_by(year)%>%
+  tally() %>%
+  ggplot(aes(year, n)) +
+  geom_line() +
+  geom_point()
+
+
+
+```
+
 
 
 ## Results
