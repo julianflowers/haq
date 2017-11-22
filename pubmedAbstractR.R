@@ -27,12 +27,12 @@ abstracts <- data.frame(title = fetch@ArticleTitle,
                           year = fetch@YearPubmed) %>%
     mutate(abstract = as.character(abstract))
 
-comment <- glue::glue("Your query is", {s1@querytranslation}, ". This returns", {s1@count}, " abstracts. ", 
-           "By default 1000 abstracts are downloaded. To retrieve more use set 'n =' argument to the desired value")
+comment <- glue::glue("Your query is ", {s1@querytranslation}, ". This returns ", {s1@count}, " abstracts. ", 
+           "By default 1000 abstracts are downloaded. To retrieve more set 'n =' argument to the desired value")
 
 
 ## returns latest 1000 abstracts unless n value changed   
-comment
+print(comment)
 abstracts           
 }
 

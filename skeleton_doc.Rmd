@@ -3,6 +3,7 @@ title: "HAQ article framework"
 output:
   html_document:
     df_print: paged
+   
 ---
 
 ```{r, include =  FALSE }
@@ -14,23 +15,75 @@ library(tidyverse)
 
 ```
 
-# Abstract
+# Main document
 
 ## Introduction
 
+* Amenable mortality defined as ...
+* Thought to be a useful comparative measure of effectiveness and quality of healthcare
+* Has been updated using GBD methodology and study data 2015
+* International comparisons published [@ref]
+* First time publication of English sub-national comparison
+* Describes
+    + Variation
+    + Trends
+    + Cross comparison with conventional method
+    + Models variation with deprivation scores
+    + Models variation with other metrics of local healthcare quality and performance 
+   
 
 
 ## Methods
 
+* Calculation of HAQ described elsewhere
+* In brief (to flesh out):
+    + Identifies causes of death using Nolte and McKee list [@ref]
+    + Recodes using 'garbage code' methodology
+    + Risk adjusts
+    + Calculates PCA
+    + Constructs index using first 3 componenets
+    + Scales index to 0-100
+    + Compares index for each country against SDI using frontier analysis
+    + Estimates additional gain/loss in index given countries level of socio-economic deprivation
+* Obtain pre-calculated HAQ values for each UTLA from GBD
+* Calculate summary metrics (tabulate)
+* Plot variation and trends per LA via line charts and maps
+* Obtain other metrics of healthcare performance and quality ? what
+    + ONS area amenable and avoidable mortality rates (model/ correlation)
+    + ?? Healthcare spend - ?is this available by LA - ? or estimation from CCGs
+    + ?? SHMI - at provider level but map to LA?
+    + Other??
+* Simple regression model vs UTLA deprivation score and calculate predicted HAQ    
+
+    
+
 
 ## Results
+
+* Tabular summaries
+* Maps and charts
+* ? Statistical analysis on trends
+* Comparison with amenable mortality from ONS
+* Context of other metrics
+* Model vs deprivation (IMD)
+* Estimates of potential improvement
+
+
 
 
 ## Discussion
 
+* Novel method
+* Literature about vailidty of amenable mortality as a measure of healthcare performance and quality
+* What does this add?
+* Paucity of indicators of population healthcare quality
+* Potential as a monitoring tool?
+* Other ideas?
+
+
 ## Conclusions
 **********
-# Main article
+# Abstract
 
 ## Introduction
 
