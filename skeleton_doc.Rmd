@@ -1,9 +1,9 @@
 ---
 title: "HAQ article framework"
 output:
+  word_document: default
   html_document:
     df_print: paged
-   
 ---
 
 ```{r, include =  FALSE }
