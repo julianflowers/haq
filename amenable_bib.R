@@ -1,3 +1,5 @@
+## pubmed search for amenable mortality 
+
 library(RISmed)
 library(tidyverse)
 library(tidytext)
@@ -51,3 +53,33 @@ am_cloud %>%
 am_abs %>%
   DT::datatable()
 
+## GBD search
+
+search1 <- "Global+Burden+of+Disease|GBD"
+
+s1 <- EUtilsSummary(search1, 
+                   type = "esearch", 
+                   db = "pubmed",
+                   datetype = "pdat",
+                   retmax = 12000,
+                   mindate = 2010, 
+                   maxdate = 2016)
+
+fetch <- EUtilsGet(s1, type = "efetch", db = "pubmed")
+
+abstracts <- data.frame(title = fetch@ArticleTitle,
+                        abstract = fetch@AbstractText, 
+                        journal = fetch@Title,
+                        DOI = fetch@PMID, 
+                        year = fetch@YearPubmed) %>%
+  mutate(abstract = as.character(abstract))
+
+abstracts %>%
+  group_by(year) %>%
+  tally() %>%
+  ggplot(aes(year, n)) +
+  geom_col(fill = "blue") +
+  labs(title = paste0("Articles on ", search1))
+
+s1@count
+s1@querytranslation

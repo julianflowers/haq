@@ -82,6 +82,36 @@ library(tidyverse)
 
 
 ## Conclusions
+
+## Potential figures
+
+```{r}
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **********
 # Abstract
 
@@ -95,14 +125,17 @@ library(tidyverse)
 
 source("pubmedAbstractR.R")
 
-gbd <- pubmedAbstractR("GBD")
+search <- "amenable mortality"
+
+gbd <- pubmedAbstractR(search)
 
 gbd %>%
   group_by(year)%>%
   tally() %>%
   ggplot(aes(year, n)) +
   geom_line() +
-  geom_point()
+  geom_point() +
+  labs(tite = paste("Annual articles on ", search))
 
 
 
