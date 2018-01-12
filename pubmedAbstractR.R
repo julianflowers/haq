@@ -1,6 +1,6 @@
 ## function for downloading abstracts from pubmed
 
-pubmedAbstractR <- function(search, n = 1000, start = 2000, end = 2017){
+pubmedAbstractR <- function(search, n = 1000, start = 2000, end = 2017, db = "pubmed"){
   
   require(RISmed)
   require(tidyverse)
@@ -35,8 +35,5 @@ comment <- glue::glue("Your query is ", {s1@querytranslation}, ". This returns "
 print(comment)
 abstracts           
 }
-
-
-
 
 
